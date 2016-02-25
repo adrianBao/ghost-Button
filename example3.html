@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="example3.css">
+    <script src="../jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="box-img">
+        <span class="img-box1 dongzuo"></span>
+        <a class="box-button" href="#" data-title="My mission is clear">mission
+            <span class="line line-top"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+            <span class="line line-right"></span>
+        </a>
+    </div>
+    <div class="box-img">
+        <span class="img-box2 dongzuo"></span>
+        <a class="box-button" href="#" data-title="This is my play ground">play
+            <span class="line line-top"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+            <span class="line line-right"></span></a>
+    </div>
+    <div class="box-img ">
+        <span class="img-box3 dongzuo"></span>
+        <a class="box-button" href="#" data-title="Lets do something together">touch
+            <span class="line line-top"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+            <span class="line line-right"></span></a>
+    </div>
+    <div class="message">
+        <span class="message-content"></span>
+        <span class="message-top"></span>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(function () {
+            $(".box-button").hover(function () {
+                var title = $(this).attr("data-title");
+                $(".message-content").text(title);
+                var pos = $(this).offset().left;
+                var dis = ($(".message").outerWidth() - $(this).outerWidth()) / 2;
+                var m = pos - dis;
+                $(".message").css({"left": +m + "px",}).animate({"top": "230px", "opacity": "1"}, 300)
+            }, function () {
+                $(".message").animate({"top": "160px", "opacity": "0"}, 1);
+            });
+        })
+    })
+
+</script>
+</body>
+</html>
